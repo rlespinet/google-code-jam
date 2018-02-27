@@ -1,7 +1,7 @@
 # Solutions for Google Code Jam problems
 
 This repository contains my solutions to some of the
-[Google code jam](#https://code.google.com/codejam/) problems.
+[Google Code Jam](https://code.google.com/codejam/) problems.
 (Mainly C++/Golang).
 
 # Compiling and running solutions
