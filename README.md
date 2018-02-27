@@ -17,3 +17,15 @@ and run program on the input files with
 
 The root Makefile can be used to build/run the solutions for all
 the problems.
+
+# Table of the solutions in this repository
+
+|      | qualification | round1A | round1B | round1C | round2  | round3  | finals |
+| ---- | ------------- | ------- | ------- | ------- | ------- | ------- | ------ |
+| 2008 |               | X X X   |         |         |         |         |        |
+| 2010 | X X X         |         |         |         |         |         |        |
+| 2011 | X X X         |         |         |         |         |         |        |
+| 2014 | X X X         | X X X   | X X X   | X X X   |         |         |        |
+| 2015 |               | X X -   | X - -   |         |         |         |        |
+| 2016 | X X X X       | X X X   | X X X   | X X X X | X X - - |         |        |
+| 2017 | X X X X       | X X X   |         |         |         |         |        |
