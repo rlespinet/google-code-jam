@@ -10,7 +10,7 @@ Each individual solution directory contains a Makefile. You can
 build the solution by running
 
     make all
-    
+
 and run program on the input files with
 
     make run
@@ -25,7 +25,7 @@ the problems.
 | 2008 |               | X X X   |         |         |         |         |        |
 | 2010 | X X X         |         |         |         |         |         |        |
 | 2011 | X X X         |         |         |         |         |         |        |
-| 2014 | X X X         | X X X   | X X X   | X X X   |         |         |        |
+| 2014 | X X X         | - X -   | X X X   | X X -   |         |         |        |
 | 2015 |               | X X -   | X - -   |         |         |         |        |
-| 2016 | X X X X       | X X X   | X X X   | X X X X | X X - - |         |        |
-| 2017 | X X X X       | X X X   |         |         |         |         |        |
+| 2016 | X X - X       | X X X   | X - -   | - X -   | X - - - |         |        |
+| 2017 | X X X X       | X X -   |         |         |         |         |        |
