@@ -1,15 +1,10 @@
 #include <iostream>
-#include <fstream>
 #include <exception>
 #include <stdexcept>
 
 #include "line.hpp"
 
 #define MAX(_a, _b) ((_a > _b)?_a:_b)
-
-void usage() {
-	std::cout << "usage : ./mushroom_monster input_file" << std::endl;
-}
 
 template<class T>
 T process1(line<T> line) {
@@ -26,7 +21,7 @@ T process1(line<T> line) {
 			res += line[i] - line[i+1];
 		}
 	}
-	
+
 	return res;
 
 }
@@ -69,9 +64,9 @@ void dump(const line<T>& line) {
 }
 
 
-void process_test(std::ifstream* input) {
+void process_test() {
 	int data_number;
-	*input >> data_number;
+	std::cin >> data_number;
 
 	if (data_number <= 0) {
 		throw std::invalid_argument("Wrong line in input file");
@@ -80,7 +75,7 @@ void process_test(std::ifstream* input) {
 	line<int> line(data_number);
 	for (int i = 0; i < data_number; i++) {
 		int data;
-		*input >> data;
+		std::cin >> data;
 		line[i] = data;
 	}
 
@@ -92,23 +87,14 @@ void process_test(std::ifstream* input) {
 
 int main(int argc, char **argv) {
 
-	if (argc != 2) {
-		usage();
-		return -1;
-	}
-
-	std::string input_name = argv[1];
-
-	std::ifstream input(input_name);
-
 	int test_number;
-	input >> test_number;
+        std::cin >> test_number;
 
 	for (int i = 0; i < test_number; i++) {
 		std::cout << "Case #";
 		std::cout << i + 1;
 		std::cout << ": ";
-		process_test(&input);
+		process_test();
 		std::cout << std::endl;
 	}
 

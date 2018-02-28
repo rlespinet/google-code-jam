@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
 #include <cstdint>
 
@@ -8,16 +7,10 @@
 #define MIN(_a, _b) ((_a < _b) ? _a : _b)
 #define MAX(_a, _b) ((_a > _b) ? _a : _b)
 
-void usage() {
-	std::cout << "usage: haircut input_file";
-	std::cout << std::endl;
-	exit(0);
-}
-
 uint64_t gcd(uint64_t a, uint64_t b) {
 	if (b == 0)
 		return a;
-	else 
+	else
 		return gcd(b, a % b);
 }
 
@@ -54,7 +47,7 @@ inline uint64_t eval(uint64_t t, const std::vector<uint64_t>& data) {
 // }
 
 inline uint64_t min_left(uint64_t t, uint64_t N, const std::vector<uint64_t>&data) {
-	
+
 	uint64_t diff = N - eval(t, data);
 	uint64_t id = 0;
 
@@ -71,16 +64,16 @@ inline uint64_t min_left(uint64_t t, uint64_t N, const std::vector<uint64_t>&dat
 	return id;
 }
 
-uint64_t solution(std::ifstream& input) {
+uint64_t solution() {
 
 	uint64_t B, N;
-	input >> B;
-	input >> N;
+	std::cin >> B;
+	std::cin >> N;
 
 	std::vector<uint64_t> data(B);
 	for (uint64_t i = 0; i < B; i++) {
 		uint64_t element;
-		input >> element;
+		std::cin >> element;
 		data[i] = element;
 	}
 
@@ -117,20 +110,14 @@ uint64_t solution(std::ifstream& input) {
 
 int main(int argc, char** argv) {
 
-	if (argc != 2) {
-		usage();
-	}
-
-	std::ifstream input(argv[1]);
-
 	uint64_t test_count;
-	input >> test_count;
+        std::cin >> test_count;
 
 	for (uint64_t i = 0; i < test_count; i++) {
 		std::cout << "Case #";
 		std::cout << i + 1;
 		std::cout << ": ";
-		std::cout << solution(input);
+		std::cout << solution();
 		std::cout << std::endl;
 	}
 

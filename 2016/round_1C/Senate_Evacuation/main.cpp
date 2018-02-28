@@ -11,14 +11,14 @@ void do_test(int n) {
 	// char match[MAX_N] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	int total = 0;
-	
+
 	for (int i = 0; i < N; i++) {
 		std::cin >> count[i];
 		total += count[i];
 	}
 
 	while (total > 0) {
-		
+
 		int id_max1 = 0;
 		int id_max2 = 0;
 
@@ -28,7 +28,7 @@ void do_test(int n) {
 				id_max1 = i;
 			}
 
-			if (count[id_max2] <= count[i] && 
+			if (count[id_max2] <= count[i] &&
 			    count[id_max2] < count[id_max1]) {
 				id_max2 = i;
 			}
@@ -67,7 +67,7 @@ void do_test(int n) {
 	}
 
 	std::cout << std::endl;
-	
+
 }
 
 int main() {
@@ -76,7 +76,8 @@ int main() {
 	std::cin >> T;
 
 	for (int i = 0; i < T; i++) {
-		do_test(i);
+            std::cout << "Case #" << i+1 << ":";
+            do_test(i);
 	}
 
 	return 0;

@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <cstdint>
 
 #define MIN(_a, _b) (_a < _b ? _a : _b)
@@ -91,26 +90,14 @@ uint64_t solve(uint64_t N) {
 
 }
 
-void usage() {
-	std::cout << "Usage : ./counter_culture <input_file>";
-	std::cout << std::endl;
-	exit(-1);
-}
-
 int main(int argc, char** argv) {
 
-	if (argc != 2) {
-		usage();
-	}
-
 	int test_count;
-	std::ifstream input(argv[1]);
-
-	input >> test_count;
+	std::cin >> test_count;
 
 	for (int i = 0; i < test_count; i++) {
 		uint64_t N;
-		input >> N;
+		std::cin >> N;
 		uint64_t solution = solve(N);
 		std::cout << "Case #";
 		std::cout << i + 1;
