@@ -2,59 +2,43 @@
 #include <cmath>
 #include <cstdint>
 
-int64_t sqrt_int(int64_t i) {
-	std::cout << i << std::endl;
-#if 1
-	return (int64_t) sqrt(i);
-#else
-	int64_t start = 0;
-	int64_t end = i;
-
-	while (end - start > 1) {
-		int64_t mid = (start + end) / 2;
-		if (mid * mid > i) {
-			end = mid;
-		} else if (mid * mid < i) {
-			start = mid;
-		} else {
-			return mid;
-		}
-	}
-
-	return start;
-#endif
-}
-
-void do_test_rec(int n, int64_t &a, int64_t &b) {
-
-	if (n == 1) {
-		a = 1;
-		b = 0;
-		return;
-	}
-
-	do_test_rec(n / 2, a, b);
-	int64_t old_a = a;
-	int64_t old_b = b;
-	a = (6 * old_a * old_a + 2 * old_a * old_b);
-	b = (old_b * old_b - 4 * old_a * old_a);
-	if (n & 0x1) {
-		old_a = a;
-		old_b = b;
-		a = (6 * old_a + old_b);
-		b = (- 4 * old_a);
-	}
-}
-
 int do_test(int n) {
 
-	int64_t a = 0;
-	int64_t b = 0;
-	do_test_rec(n, a, b);
+    uint64_t a = 1;
+    uint64_t b = 0;
 
-	int64_t num = (3 * a + sqrt_int(a * a * 5) + b) % 1000;
+    for (int i = 63; i >= 0; i--) {
 
-	return num;
+        uint64_t na = a * a + 5 * b * b;
+        uint64_t nb = 2 * a * b;
+        a = na;
+        b = nb;
+
+        if ((1L << i) & n) {
+            uint64_t na = 3 * a + 5 * b;
+            uint64_t nb = 3 * b + a;
+            a = na;
+            b = nb;
+        }
+
+        a %= 1000;
+        b %= 1000;
+
+    }
+
+    return (2 * a - 1) % 1000;
+}
+
+void print_padded_1000(uint64_t n) {
+
+    uint64_t c = 3;
+    for (uint64_t p = 1; c > 0 && n > p; p *=10, c--);
+
+    while (c--) {
+        std::cout << '0';
+    }
+
+    std::cout << n;
 }
 
 int main() {
@@ -66,10 +50,9 @@ int main() {
 
 		int n;
 		std::cin >> n;
-		// std::cout << sqrt_int(n) << std::endl;
-		std::cout << "Case #" << i + 1
-			  << ": " << do_test(n)
-			  << std::endl;
+		std::cout << "Case #" << i + 1 << ": ";
+                print_padded_1000(do_test(n));
+                std::cout << std::endl;
 	}
 
 	return 0;
